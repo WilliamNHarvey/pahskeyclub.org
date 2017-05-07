@@ -1,0 +1,1 @@
+{"timeout":0,"exit_code":0,"status":1,"data":[{"type":"sub","user":"william@pahskeyclub.org","homedir":"/home3/fahskeyc"},{"homedir":"/home3/fahskeyc","type":"main","user":"fahskeyc"},{"homedir":"/var/log/domlogs/fahskeyc","user":"fahskeyc_logs","type":"logaccess"}],"version":"2.4","statusmsg":"Ran adminbin Cpanel/ftp/LISTSTORE","mode":"simple","action":"fetch","error":0}
