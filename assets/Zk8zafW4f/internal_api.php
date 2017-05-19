@@ -21,24 +21,6 @@ foreach($eventList as $singleEvent) {
     $events .= "},";
 }
 $events .= "]";
-$users = getUsers();
-if($users) {
-    $userlist = '<select id="userList">';
-    foreach($users as $user)
-    {
-        $userlist .= '<option value="' . htmlspecialchars($user['id']) . '">'
-            . htmlspecialchars($user['username'])
-            . '</option>';
-    }
-    $userlist .= '</select>';
-    $rolelist = '<select id="roleList">';
-    $rolelist .= '<option value="1">User</option><option value="2">Member</option><option value="3">Officer</option>';
-    if(getUserRoleId($_SESSION["user"]["role"]) == 4) { //webmaster
-        $rolelist .= '<option value="4">Webmaster</option>';
-    }
-    $rolelist .= '</select>';
-}
-
 
 if(isset($_COOKIE["pahskeyclub_rememberme"])) {
     $loginUser = json_decode($_COOKIE["pahskeyclub_rememberme"], true);
@@ -66,6 +48,24 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         //change user roles
         $postResponse = changeUsers();
     }
+}
+
+$users = getUsers();
+if($users) {
+    $userlist = '<select id="userList">';
+    foreach($users as $user)
+    {
+        $userlist .= '<option value="' . htmlspecialchars($user['id']) . '">'
+            . htmlspecialchars($user['username'])
+            . '</option>';
+    }
+    $userlist .= '</select>';
+    $rolelist = '<select id="roleList">';
+    $rolelist .= '<option value="1">User</option><option value="2">Member</option><option value="3">Officer</option>';
+    if(getUserRoleId($_SESSION["user"]["role"]) == 4) { //webmaster
+        $rolelist .= '<option value="4">Webmaster</option>';
+    }
+    $rolelist .= '</select>';
 }
 
 function register() {
